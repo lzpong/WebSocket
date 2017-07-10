@@ -1,3 +1,3 @@
 # WebSocket
-WebSocket for server point (C++,windows)  
+WebSocket for server (C++,windows)  
 服务端的WebSocket (C++,windows)
