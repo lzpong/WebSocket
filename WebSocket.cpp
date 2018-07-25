@@ -56,7 +56,7 @@ bool WebSocket::Handshake(const char* data,char* buf,unsigned long bufLen)
 	strcat_s(heads.WebSocket_Key,"258EAFA5-E914-47DA-95CA-C5AB0DC85B11");//加上固定字符串 ->Hash1 ->Base64
 	hash.Write( (unsigned char*)heads.WebSocket_Key, strlen(heads.WebSocket_Key) );
 	hash.Final();
-	string s1=base64.Encode(hash.GetHash1(),strlen((char*)hash.GetHash1()));
+	string s1=base64.Encode(hash.GetHash1(),20);//sha1定长20字节,且中间可能有'\0'
 	sprintf_s(buf,bufLen,head,s1.c_str());
 	return true;
 }
